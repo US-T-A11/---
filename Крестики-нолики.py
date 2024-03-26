@@ -10,7 +10,7 @@ def xo():
 def inpu(player):
     while True:
         value = int(input(f"Укажите номер клетки, {player}: "))
-        if not (value in range(1, 9)):
+        if not (value in range(1, 10)):
             print("Неверный ввод, повторите.")
             continue
         value = int(value)
@@ -24,7 +24,7 @@ def inpu(player):
 def check():
     for j in win_comb:
         if (board[j[0]-1]) == (board[j[1]-1]) == (board[j[2]-1]):
-            return board[j[1]-1]
+            return board[j[0]-1]
     else:
         return False
 def base():
@@ -38,6 +38,7 @@ def base():
         if counter > 3:
             winner = check()
             if winner:
+                xo()
                 print(winner, "выйграл!")
                 break
         counter += 1
